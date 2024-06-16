@@ -1,8 +1,10 @@
 package com.example.msgshareapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +30,15 @@ class MainActivity : AppCompatActivity() {
             Log.i("MainActivity", "Button clicked!")
 
             Toast.makeText(this, "Button clicked!", Toast.LENGTH_SHORT).show()
+        }
+
+        val sendMessage: Button = findViewById(R.id.sendbtn)
+        sendMessage.setOnClickListener{
+            val message: String = findViewById<EditText>(R.id.userMessage).text.toString()
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this,SecondActivity::class.java)
+            startActivity(intent)
         }
     };
 }
