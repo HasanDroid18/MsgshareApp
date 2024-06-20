@@ -42,5 +42,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
+
+        val shareTobtn: Button = findViewById(R.id.btnShareToOtherApps)
+        shareTobtn.setOnClickListener {
+            val message: String = findViewById<EditText>(R.id.userMessage).text.toString()
+
+            val intent =Intent()
+            intent.action =Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT,message)
+            intent.type = "text/plain"
+            startActivity(Intent.createChooser(intent,"Share to: "))
+
+        }
     };
 }
