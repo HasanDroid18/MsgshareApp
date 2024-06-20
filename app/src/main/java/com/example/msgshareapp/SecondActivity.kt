@@ -1,6 +1,9 @@
 package com.example.msgshareapp
 
 import android.os.Bundle
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,6 +19,16 @@ class SecondActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val bundle: Bundle? = intent.extras
+        val msg = bundle!!.getString("user_message")
+
+        Toast.makeText(this,msg,Toast.LENGTH_LONG).show()
+
+        val txvUserMessage: TextView = findViewById(R.id.txvUserMessage)
+        txvUserMessage.text = msg
+
+
     }
 
 }
