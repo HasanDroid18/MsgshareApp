@@ -1,4 +1,4 @@
-package com.example.msgshareapp
+package com.example.msgshareapp.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -7,7 +7,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.msgshareapp.Hobby.Supplier.hobbies
+import com.example.msgshareapp.R
+import com.example.msgshareapp.adapters.HobbiesAdapter
+import com.example.msgshareapp.models.Hobby.Supplier.hobbies
 
 class HobbiesActivity : AppCompatActivity() {
 
@@ -21,13 +23,15 @@ class HobbiesActivity : AppCompatActivity() {
             insets
         }
 
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL // set orientation
         recyclerView.layoutManager = layoutManager
 
-        val adapter =HobbiesAdapter(this, hobbies)
-        recyclerView.adapter = adapter
-
-    }
+        val adapter = HobbiesAdapter(this, hobbies)
+        recyclerView.adapter = adapter    }
 }

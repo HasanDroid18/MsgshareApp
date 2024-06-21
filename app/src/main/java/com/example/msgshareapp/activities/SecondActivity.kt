@@ -1,13 +1,14 @@
-package com.example.msgshareapp
+package com.example.msgshareapp.activities
 
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.msgshareapp.R
+import com.example.msgshareapp.showToast
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,8 +24,7 @@ class SecondActivity : AppCompatActivity() {
         val bundle: Bundle? = intent.extras
         val msg = bundle!!.getString("user_message")
 
-        Toast.makeText(this,msg,Toast.LENGTH_LONG).show()
-
+        showToast(msg!!)
         val txvUserMessage: TextView = findViewById(R.id.txvUserMessage)
         txvUserMessage.text = msg
 

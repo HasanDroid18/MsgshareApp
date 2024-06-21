@@ -1,4 +1,4 @@
-package com.example.msgshareapp
+package com.example.msgshareapp.models
 
 data class Hobby(val title: String) {
 

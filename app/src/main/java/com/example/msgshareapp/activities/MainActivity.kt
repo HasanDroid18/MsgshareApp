@@ -1,4 +1,4 @@
-package com.example.msgshareapp
+package com.example.msgshareapp.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
+import com.example.msgshareapp.R
+import com.example.msgshareapp.showToast
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         val btnShowToast: Button = findViewById(R.id.btnShowToast)
         btnShowToast.setOnClickListener {
             Log.i("MainActivity", "Button clicked!")
-
-            Toast.makeText(this, "Button clicked!", Toast.LENGTH_SHORT).show()
+            showToast("Button Clicked!")
+//            Toast.makeText(this, "Button clicked!", Toast.LENGTH_SHORT).show()
         }
 
         val sendMessage: Button = findViewById(R.id.sendbtn)
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             val message: String = findViewById<EditText>(R.id.userMessage).text.toString()
 //            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
-            val intent = Intent(this,SecondActivity::class.java)
+            val intent = Intent(this, SecondActivity::class.java)
             intent.putExtra("user_message",message)
             startActivity(intent)
 
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         val btnRecyclerViewDemo: Button = findViewById(R.id.btnRecyclerViewDemo)
         btnRecyclerViewDemo.setOnClickListener {
-            val intent = Intent(this,HobbiesActivity::class.java)
+            val intent = Intent(this, HobbiesActivity::class.java)
             startActivity(intent)
         }
 
